@@ -5,6 +5,11 @@ body {
     padding: 10px;
       
   }
+  p {
+    color: rgb(0, 255, 0);
+    margin-left: 20px;
+    text-align: center;
+  }
   h1 {
     color: rgb(0, 255, 0);
     margin-left: 20px;
@@ -18,11 +23,25 @@ body {
   h3 {
     color: rgb(0, 255, 0);
     margin-left: 20px;
+  
     
   }
   h4 {
     color: rgb(0, 255, 0);
     margin-left: 20px;
+    
+    
+  }
+  h5 {
+    color: rgb(251, 255, 0);
+    margin-left: 20px;
+    text-align: center;
+    
+  }
+  h6 {
+    color: rgb(255, 251, 0);
+    margin-left: 20px;
+    text-align: center;
     
   }
   .stakeBatch {
@@ -91,6 +110,19 @@ body {
     border-radius: 12px;
   }
   .stakeBatch {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .claimTokens {
     background-color: #00ff08;
     border: none;
     color: rgb(0, 0, 0);
