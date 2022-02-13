@@ -12,24 +12,34 @@
     <div>
         <h1>Welcome to The MetaSpecies Staking App!</h1>
         <h2>Stake your MetaSpecies NFTs to earn $SPCC</h2>
+        <p>Earn 10 $SPCC every 12 hours for each MetaSpecies NFT staked!</p>
+        <h5>Connect your wallet and click the Approve Contract button before staking!</h5>
+        <h5><i>This is required to allow the SpeciesCoin contract to transfer your MetaSpecies</i></h5>
         <button class="connect">Connect Wallet</button>
-
-        <button class="disconnect">Disconnect Wallet</button>
-
-        <h3>Account: <span class="showAccount"></span></h3>
-
-        <h3>NFT's: <span class="nfts"></span> </h3>
+        <button class="approve-contract">Approve Contract</button>
         
-        <h3>Staked NFTs:<span class="staked"></span> </h3>
+
+        <h4>Wallet Address: <span class="showAccount"></span></h4>
+
+        <h3>Unstaked NFTs: <span class="nfts"></span> </h3>
+        
+        <h3>Staked NFTs: <span class="staked"></span> </h3>
         
 
         <h4>$SPCC Balance: <span class="balance"></span></h4>
+        <h4>Unclaimed $SPCC Balance: <span class="unbalance"></span></h4>
 
-        <button class="approve-contract">Approve Contract</button>
+        
        
         <button class="stakeBatch">Stake All</button>
- 
+        <button class="claimTokens">Claim $SPCC</button>
+        <br>
+        <br>
+        <br>
         <button class="unStakeBatch">Unstake All</button>
+
+        <button class="disconnect">Disconnect Wallet</button>
+        <br>
     </div>
     <script type="text/javascript">
 
@@ -57,6 +67,8 @@ const nftWallet = document.querySelector('.nfts');
 const DisconnectMetaMask = document.querySelector('.disconnect');
 const staked = document.querySelector('.staked');
 const balance = document.querySelector('.balance')
+const unbalance = document.querySelector('.unbalance')
+const claim = document.querySelector('.claimTokens')
 
 // console.log(staked);
 // console.log(nftWallet);
@@ -74,7 +86,19 @@ async function getMts(){
     nftWallet.innerHTML = Nfts;
     staked.innerHTML = stakedNFT;
     balance.innerHTML = SPCCbalance/1000000000000000000;
+
+    //console.log(stakedNFT);
+    var calcBal = 0
+    for (let x of stakedNFT) {
+        nftBal = await spccContract.methods.pendingRewards(account,x).call();
+        int = parseInt(nftBal);
+        calcBal += int;
+    }
+    //console.log(nftBal);
+    unbalance.innerHTML = calcBal/1000000000000000000;
 }
+
+
 //approve the Species Coin contract to transfer your MetaSpecies
 async function approveMtsContract(){
     //import Web3 from 'web3';
@@ -105,7 +129,13 @@ async function unStakeSpccBatch(){
     await spccContract.methods.unstakeBatch(stakedNfts).send({from:account})
 }
 
+async function claimAllTokens(){
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
 
+
+    await spccContract.methods.harvestBatch(account).send({from:account})
+}
 
 
 
@@ -134,6 +164,10 @@ unStakeBatchButton.addEventListener('click', () => {
 
 ethereumButton.addEventListener('click', () => {
     getMts();
+});
+
+claim.addEventListener('click', () => {
+    claimAllTokens();
 });
 
     </script>
