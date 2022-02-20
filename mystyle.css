@@ -1,0 +1,218 @@
+body {
+    background-color: rgb(43, 43, 43);
+    /* max-width: 500px;
+    margin: auto;
+    padding: 10px; */
+      
+}
+
+  p {
+    color: rgb(0, 255, 0);
+    margin-left: 20px;
+    text-align: center;
+  }
+  h1 {
+    color: rgb(0, 255, 0);
+    margin-left: 20px;
+    text-align: center;
+  }
+  h2 {
+    color: rgb(0, 255, 0);
+    margin-left: 20px;
+    text-align: center;
+  }
+  h3 {
+    color: rgb(0, 255, 0);
+    margin-left: 20px;
+  
+    
+  }
+  h4 {
+    color: rgb(0, 255, 0);
+    margin-left: 20px;
+    
+    
+  }
+  h5 {
+    color: rgb(251, 255, 0);
+    margin-left: 20px;
+    text-align: center;
+    
+  }
+  h6 {
+    color: rgb(255, 251, 0);
+    margin-left: 20px;
+    text-align: center;
+    
+  }
+  .stakeSelected {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .stakeBatch {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .unStakeBatch {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .approve-contract {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .connect {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .disconnect {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .stakeBatch {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .claimTokens {
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .t{
+    background-color: #00ff08;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 7.5px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+  }
+  .t.selected{
+    background-color: #f10707;
+    color: rgb(0, 0, 0)
+  }
+  
+  @media (min-width: 650px) {
+   .t:hover {
+     background-color: #000000;
+     color: rgb(0, 255, 34)  
+    }
+  }
+  
+  @media (max-width: 650px) {
+    .t{
+      display: block;
+    }
+      }
+
+      /* Float four columns side by side */
+.column {
+  float: left;
+  width: 50%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #000000;
+}
+* {
+  box-sizing: border-box;
+}

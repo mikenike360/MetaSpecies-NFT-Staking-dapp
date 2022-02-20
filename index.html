@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>MetaSpecies Staking dApp</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <!--<img src="/galax.gif" alt="description of gif" />-->
+        <!--<h1>Welcome to The MetaSpecies Staking App!</h1>-->
+        <h2>Stake your MetaSpecies NFTs to earn $SPCC</h2>
+        <p>Earn 10 $SPCC every 12 hours for each MetaSpecies NFT staked!</p>
+        <h5>Connect your wallet and click the Approve Contract button before staking!</h5>
+        <h5><i>This is required to allow the SpeciesCoin contract to transfer your MetaSpecies</i></h5>
+       
+        <button class="approve-contract">Approve Contract</button>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button class="connect">Connect Wallet</button>
+        <button class="disconnect">Disconnect Wallet</button>
+        <br>
+
+        <h4>Wallet Address: <span class="showAccount"></span></h4>
+
+        <h3>Unstaked NFTs: <span class="nfts"></span> </h3>
+
+        <h3>Staked NFTs: <span class="staked"></span> </h3>
+
+
+        <h4>$SPCC Balance: <span class="balance"></span></h4>
+        <h4>Unclaimed $SPCC Balance: <span class="unbalance"></span></h4>
+        <button class="claimTokens">Claim $SPCC</button>
+        <br>
+        <br>
+
+        <button class="stakeBatch">Stake All</button>
+        <button class="stakeSelected">Stake Selected</button>
+        
+        <br>
+        <br>
+        <br>
+        <button class="unStakeBatch">Unstake All</button>
+
+        
+        <br>
+    </div>
+    <script src="./main.js">
+
+    </script>
+</body>
+
+</html>
