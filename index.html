@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>MetaSpecies Staking dApp</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+
+
+<body>
+    <div class="pic">
+        <img src="./MetaSpecies.io.png">
+    </div>
+
+    <div class="headcolumn">
+        <div class="headcard">
+            <h3>Welcome to the MetaSpecies Staking App</h3>
+            <p>Stake your MetaSpecies NFT and Earn 10 $SPCC every 12 hours for each MetaSpecies NFT staked!</p>
+        </div>
+    </div>
+
+    <div class="maincolumn">
+        <div class="maincard">
+            <h3>Step 1.</h3>
+            <p>Connect your wallet to the site!</p>
+            <p>Wallet Address: <span class="showAccount"></span></p>
+            <button class="connect">Connect Wallet</button>
+            <button class="disconnect">Disconnect Wallet</button>
+        </div>
+    </div>
+
+    <!-- <div class="row"> -->
+
+        <div class="column">
+            <div class="card">
+                <h3>Step 2.</h3>
+                <p>This only needs to be done once!</p>
+                <button class="approve-contract">Approve $SPCC Contract</button>
+            </div>
+        </div>
+
+
+        <div class="column">
+            <div class="card">
+                <h3>Stake Your NFTs</h3>
+                <button class="stakeBatch">Stake All</button>
+                <button class="stakeSelected">Stake Selected</button>
+                <p>Your unStaked NFTs: <span class="nfts"></span> </p>
+            </div>
+        </div>
+
+
+
+        <div class="column">
+            <div class="card">
+                <h3>Unstake your NFTs</h3>
+                <button class="unStakeBatch">Unstake All</button>
+                <button class="unStakeSelected">Unstake Selected</button>
+                <p>Your Staked NFTs: <span class="staked"></span> </p>
+            </div>
+        </div>
+
+
+
+        <div class="column">
+            <div class="card">
+                <h3>Account Balance:</h3>
+                <p>$SPCC Balance: <span class="balance"></span></p>
+                <p>Unclaimed $SPCC Balance: <span class="unbalance"></span></p>
+                <button class="claimTokens">Claim $SPCC</button>
+            </div>
+        </div>
+
+
+    <!-- </div> -->
+
+    <script src="./main.js"></script>
+</body>
+
+</html>
