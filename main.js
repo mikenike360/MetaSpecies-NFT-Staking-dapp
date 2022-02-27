@@ -1,4 +1,3 @@
-
 //contract variables
 const mtsABI = [{ "inputs": [{ "internalType": "string", "name": "_name", "type": "string" }, { "internalType": "string", "name": "_symbol", "type": "string" }, { "internalType": "string", "name": "_initBaseURI", "type": "string" }, { "internalType": "string", "name": "_initNotRevealedUri", "type": "string" }], "stateMutability": "nonpayable", "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "approved", "type": "address" }, { "indexed": true, "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "operator", "type": "address" }, { "indexed": false, "internalType": "bool", "name": "approved", "type": "bool" }], "name": "ApprovalForAll", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": true, "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "inputs": [{ "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "approve", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "baseExtension", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "cost", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "getApproved", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "operator", "type": "address" }], "name": "isApprovedForAll", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "maxMintAmount", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "maxSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_mintAmount", "type": "uint256" }], "name": "mint", "outputs": [], "stateMutability": "payable", "type": "function" }, { "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "notRevealedUri", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "ownerOf", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "bool", "name": "_state", "type": "bool" }], "name": "pause", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "paused", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "reveal", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "revealed", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "from", "type": "address" }, { "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "safeTransferFrom", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "from", "type": "address" }, { "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "tokenId", "type": "uint256" }, { "internalType": "bytes", "name": "_data", "type": "bytes" }], "name": "safeTransferFrom", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "operator", "type": "address" }, { "internalType": "bool", "name": "approved", "type": "bool" }], "name": "setApprovalForAll", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "string", "name": "_newBaseExtension", "type": "string" }], "name": "setBaseExtension", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "string", "name": "_newBaseURI", "type": "string" }], "name": "setBaseURI", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_newCost", "type": "uint256" }], "name": "setCost", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "string", "name": "_notRevealedURI", "type": "string" }], "name": "setNotRevealedURI", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "_newmaxMintAmount", "type": "uint256" }], "name": "setmaxMintAmount", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "bytes4", "name": "interfaceId", "type": "bytes4" }], "name": "supportsInterface", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "index", "type": "uint256" }], "name": "tokenByIndex", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "uint256", "name": "index", "type": "uint256" }], "name": "tokenOfOwnerByIndex", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "tokenURI", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "from", "type": "address" }, { "internalType": "address", "name": "to", "type": "address" }, { "internalType": "uint256", "name": "tokenId", "type": "uint256" }], "name": "transferFrom", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_owner", "type": "address" }], "name": "walletOfOwner", "outputs": [{ "internalType": "uint256[]", "name": "", "type": "uint256[]" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "withdraw", "outputs": [], "stateMutability": "payable", "type": "function" }]
 const mtsADDRESS = "0x526d60592806E63D1088bd6ca74956A63d965254";
@@ -22,99 +21,94 @@ const staked = document.querySelector('.staked');
 const balance = document.querySelector('.balance')
 const unbalance = document.querySelector('.unbalance')
 const claim = document.querySelector('.claimTokens')
+const calc = document.querySelector('.calculateTokens')
 const stakeSelected = document.querySelector('.stakeSelected')
 const unStakeSelected = document.querySelector('.unStakeSelected')
 
 
 //app functions//
 ///////////////////
-
+// console.log(Nfts);
+// console.log(stakedNFT);
 //Main app function that does most of the logic
+
+var Nfts = undefined;
+
 async function getMts() {
-    
+
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    if (account !== null){
+    if (Nfts == undefined) {
 
-    Nfts = await mtsContract.methods.walletOfOwner(account).call();
-    stakedNFT = await spccContract.methods.stakedNFTSByUser(account).call();
-    SPCCbalance = await spccContract.methods.balanceOf(account).call();
-    showAccount.innerHTML = account;
-    balance.innerHTML = SPCCbalance / 1000000000000000000;
-
-
-    //calculates the unclaimed balance for each nft and then adds them together
-    var calcBal = 0
-    for (let x of stakedNFT) {
-        nftBal = await spccContract.methods.pendingRewards(account, x).call();
-        int = parseInt(nftBal);
-        calcBal += int;
-    }
+        Nfts = await mtsContract.methods.walletOfOwner(account).call();
+        stakedNFT = await spccContract.methods.stakedNFTSByUser(account).call();
+        SPCCbalance = await spccContract.methods.balanceOf(account).call();
+        showAccount.innerHTML = account;
+        balance.innerHTML = SPCCbalance / 1000000000000000000;
 
 
-    //Displays the unclaimed amount of $SPCC
-    //calcbal = Math.round(calcBal / 1000000000000000000);
-    calcBal = (Math.round(calcBal / 1000000000000000000));
-    unbalance.innerHTML = calcBal;
 
 
-    Nfts = Nfts.filter(Number);
-    stakedNFT = stakedNFT.filter(Number);
 
-    //creates buttons for unstaked nfts
-    function unStakedBtns() {
-        for (i = 0; i < Nfts.length; i++) {
-            btn = document.createElement("button");
-            btn.className = "t";
-            t = document.createTextNode(Nfts[i]);
-            btn.appendChild(t);
-            unStakedDis = document.querySelector('.nfts');
-            unStakedDis.appendChild(btn);
-        }
-    }
+        Nfts = Nfts.filter(Number);
+        stakedNFT = stakedNFT.filter(Number);
 
-    unStakedBtns();
-
-    //create buttons for staked nfts
-    function stakedBtns() {
-        for (i = 0; i < stakedNFT.length; i++) {
-            btn = document.createElement("button");
-            btn.className = "t";
-            t = document.createTextNode(stakedNFT[i]);
-            btn.appendChild(t);
-            stakedDis = document.querySelector('.staked');
-            stakedDis.appendChild(btn);
+        //creates buttons for unstaked nfts
+        function unStakedBtns() {
+            for (i = 0; i < Nfts.length; i++) {
+                btn = document.createElement("button");
+                btn.className = "t";
+                t = document.createTextNode(Nfts[i]);
+                btn.appendChild(t);
+                unStakedDis = document.querySelector('.nfts');
+                unStakedDis.appendChild(btn);
+            }
         }
 
-    }
+        unStakedBtns();
 
-    stakedBtns();
+        //create buttons for staked nfts
+        function stakedBtns() {
+            for (i = 0; i < stakedNFT.length; i++) {
+                btn = document.createElement("button");
+                btn.className = "t";
+                t = document.createTextNode(stakedNFT[i]);
+                btn.appendChild(t);
+                stakedDis = document.querySelector('.staked');
+                stakedDis.appendChild(btn);
+            }
 
-    //selects buttons created from array
-    selButton = document.getElementsByClassName("t");
-    console.log(selButton.length);
-    //console.log(selButton.length);
-    //add the selected calss to the button id
-    addSelectClass = function () {
-        removeSelectClass();
-        this.classList.add('selected');
-    }
-    //removes the selected class from the button id
-    removeSelectClass = function () {
+        }
+
+        stakedBtns();
+
+        //selects buttons created from array
+        selButton = document.getElementsByClassName("t");
+        console.log(selButton.length);
+        //console.log(selButton.length);
+        //add the selected calss to the button id
+        addSelectClass = function() {
+                removeSelectClass();
+                this.classList.add('selected');
+            }
+            //removes the selected class from the button id
+        removeSelectClass = function() {
+            for (i = 0; i < selButton.length; i++) {
+                selButton[i].classList.remove('selected')
+            }
+        }
+
         for (i = 0; i < selButton.length; i++) {
-            selButton[i].classList.remove('selected')
+            selButton[i].addEventListener("click", addSelectClass);
         }
+    } //end of if
+    else {
+        window.alert("Already Connected")
     }
-
-    for (i =0; i < selButton.length; i++) {
-        selButton[i].addEventListener("click",addSelectClass);
-    }
-}//end of if
-else{
-    window.alert("MetaMask not detected!")
-}
 }
 //end of main app function
+
+
 
 
 //approve the Species Coin contract to transfer your MetaSpecies
@@ -152,19 +146,40 @@ async function claimAllTokens() {
     await spccContract.methods.harvestBatch(account).send({ from: account })
 }
 
-async function stakeSelectedNfts(){
+async function stakeSelectedNfts() {
     selectedNft = document.querySelector('.t.selected')
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     await spccContract.methods.stake(selectedNft.innerHTML).send({ from: account })
 }
 
-async function unStakeSelectedNfts(){
+async function unStakeSelectedNfts() {
     selectedNft = document.querySelector('.t.selected')
     console.log(selectedNft.innerHTML);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     await spccContract.methods.unstake(selectedNft.innerHTML).send({ from: account })
+}
+
+
+
+async function calculateBalance() {
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+    //calculates the unclaimed balance for each nft and then adds them together
+    var calcBal = 0
+    for (let x of stakedNFT) {
+        nftBal = await spccContract.methods.pendingRewards(account, x).call();
+        int = parseInt(nftBal);
+        calcBal += int;
+    }
+
+
+    //Displays the unclaimed amount of $SPCC
+    //calcbal = Math.round(calcBal / 1000000000000000000);
+    calcBal = (Math.round(calcBal / 1000000000000000000));
+    unbalance.innerHTML = calcBal;
+
 }
 
 
@@ -196,6 +211,10 @@ ethereumButton.addEventListener('click', () => {
 
 claim.addEventListener('click', () => {
     claimAllTokens();
+});
+
+calc.addEventListener('click', () => {
+    calculateBalance();
 });
 
 stakeSelected.addEventListener('click', () => {
