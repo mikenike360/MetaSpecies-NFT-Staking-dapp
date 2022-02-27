@@ -162,23 +162,31 @@ async function unStakeSelectedNfts() {
 }
 
 
-
 async function calculateBalance() {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     //calculates the unclaimed balance for each nft and then adds them together
     var calcBal = 0
-    for (let x of stakedNFT) {
-        nftBal = await spccContract.methods.pendingRewards(account, x).call();
-        int = parseInt(nftBal);
-        calcBal += int;
+
+    if (unbalance.innerHTML.length == 0) {
+
+        for (let x of stakedNFT) {
+
+            nftBal = await spccContract.methods.pendingRewards(account, x).call();
+            int = parseInt(nftBal);
+            calcBal += int;
+        }
+
+        calc.classList.remove("button--loading");
+        //Displays the unclaimed amount of $SPCC
+        //calcbal = Math.round(calcBal / 1000000000000000000);
+        calcBal = (Math.round(calcBal / 1000000000000000000));
+        unbalance.innerHTML = calcBal;
+
+
+    } else {
+
     }
-
-
-    //Displays the unclaimed amount of $SPCC
-    //calcbal = Math.round(calcBal / 1000000000000000000);
-    calcBal = (Math.round(calcBal / 1000000000000000000));
-    unbalance.innerHTML = calcBal;
 
 }
 
@@ -214,6 +222,7 @@ claim.addEventListener('click', () => {
 });
 
 calc.addEventListener('click', () => {
+    calc.classList.add("button--loading");
     calculateBalance();
 });
 
