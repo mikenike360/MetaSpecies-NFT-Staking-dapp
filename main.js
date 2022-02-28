@@ -208,7 +208,6 @@ unStakeBatchButton.addEventListener('click', () => {
 });
 
 ethereumButton.addEventListener('click', () => {
-    ethereumButton.classList.add("button--loading");
     getMts();
 });
 
