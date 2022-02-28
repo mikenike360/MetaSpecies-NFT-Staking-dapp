@@ -44,11 +44,7 @@ async function getMts() {
         stakedNFT = await spccContract.methods.stakedNFTSByUser(account).call();
         SPCCbalance = await spccContract.methods.balanceOf(account).call();
         showAccount.innerHTML = account;
-        balance.innerHTML = SPCCbalance / 1000000000000000000;
-
-
-
-
+        balance.innerHTML = (Math.round(SPCCbalance / 1000000000000000000));
 
         Nfts = Nfts.filter(Number);
         stakedNFT = stakedNFT.filter(Number);
@@ -184,8 +180,6 @@ async function calculateBalance() {
         unbalance.innerHTML = calcBal;
 
 
-    } else {
-
     }
 
 }
@@ -214,6 +208,7 @@ unStakeBatchButton.addEventListener('click', () => {
 });
 
 ethereumButton.addEventListener('click', () => {
+    ethereumButton.classList.add("button--loading");
     getMts();
 });
 
