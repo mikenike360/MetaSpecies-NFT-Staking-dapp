@@ -25,10 +25,13 @@
 
     <div class="column">
         <div class="card">
-            <h3>Step 1.</h3>
-            <p>Connect your wallet to the site!</p>
+            <h3>Connect/Disconnect Wallet</h3>
+            <!-- <p>Connect your wallet to the site!</p> -->
             <button class="connect">Connect Wallet</button>
             <button class="disconnect">Disconnect Wallet</button>
+            <div id="walletHeight">
+            <p>Wallet Address: <br> <span class="showAccount"></span></p>
+        </div>
         </div>
     </div>
 
@@ -36,9 +39,11 @@
 
         <div class="column">
             <div class="card">
-                <h3>Step 2.</h3>
-                <p>This only needs to be done once!</p>
-                <button class="approve-contract">Approve $SPCC Contract</button>
+                <h3>Approve Contract</h3>
+                <p id="test">This only needs to be done once!</p>
+                <div id="appbtn">
+                <button class="approve-contract" id="approved">Approve $SPCC Contract</button>
+                </div>
             </div>
         </div>
 
@@ -49,7 +54,7 @@
                 <button class="stakeBatch">Stake All</button>
                 <button class="stakeSelected">Stake Selected</button>
                 <div class="visible-scrollbar">
-                    <p>Your unStaked NFTs: </p>
+                    <p>Your unStaked NFTs</p>
                     <div id="visible-scrollbar">
                         <span class="nfts"></span>
                     </div>
@@ -64,7 +69,7 @@
                 <h3>Unstake your NFTs</h3>
                 <button class="unStakeBatch">Unstake All</button>
                 <button class="unStakeSelected">Unstake Selected</button>
-                <p>Your Staked NFTs:</p>
+                <p>Your Staked NFTs</p>
                 <div id="visible-scrollbar">
                     <span class="staked"></span>
                 </div>
@@ -73,13 +78,15 @@
 
         <div class="column">
             <div class="card">
-                <h3>Connected Wallet</h3>
-                <div class="wally">
-                    <p>Wallet Address: <span class="showAccount"></span></p>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                <h3>Contract Stats</h3>
+                <div id="wally">
+                    <p>Wallets Staking: <span class="stakedWallets"></span></p>
+                    <p>Total MetaSpecies NFTs Staked: <span class="totalMTSstaked"></span></p>
+                    <div id="contractLink">
+                        <a href="https://polygonscan.com/address/0xa8bd82c9065889989cb13511f65570c9f43ba882">
+                        <p>Species Coin Polygonscan Link</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

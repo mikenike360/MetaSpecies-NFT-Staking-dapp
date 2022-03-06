@@ -24,12 +24,11 @@ const claim = document.querySelector('.claimTokens')
 const calc = document.querySelector('.calculateTokens')
 const stakeSelected = document.querySelector('.stakeSelected')
 const unStakeSelected = document.querySelector('.unStakeSelected')
-
+const totalWallets = document.querySelector('.stakedWallets')
+const totalMTSstaked = document.querySelector('.totalMTSstaked')
 
 //app functions//
-///////////////////
-// console.log(Nfts);
-// console.log(stakedNFT);
+
 //Main app function that does most of the logic
 
 var Nfts = undefined;
@@ -49,6 +48,8 @@ async function getMts() {
         Nfts = Nfts.filter(Number);
         stakedNFT = stakedNFT.filter(Number);
 
+        combList = Nfts.concat(stakedNFT);
+        
         //creates buttons for unstaked nfts
         function unStakedBtns() {
             for (i = 0; i < Nfts.length; i++) {
@@ -78,17 +79,13 @@ async function getMts() {
 
         stakedBtns();
 
-        //selects buttons created from array
         selButton = document.getElementsByClassName("t");
-        console.log(selButton.length);
         //console.log(selButton.length);
-        //add the selected calss to the button id
-        addSelectClass = function() {
-                removeSelectClass();
-                this.classList.add('selected');
-            }
-            //removes the selected class from the button id
-        removeSelectClass = function() {
+        addSelectClass = function () {
+            removeSelectClass();
+            this.classList.add('selected');
+        }
+        removeSelectClass = function () {
             for (i = 0; i < selButton.length; i++) {
                 selButton[i].classList.remove('selected')
             }
@@ -97,14 +94,70 @@ async function getMts() {
         for (i = 0; i < selButton.length; i++) {
             selButton[i].addEventListener("click", addSelectClass);
         }
-    } //end of if
+
+
+        isApproved = await mtsContract.methods.isApprovedForAll(account, operatorAddress).call();
+
+        if (isApproved = true) {
+
+            //console.log(isApproved);
+
+            const sp1 = document.createElement("span");
+
+            // Give it an id attribute called 'newSpan'
+            sp1.id = "apr";
+            
+            // Create some content for the new element.
+            const sp1_content = document.createTextNode("Contract Already Approved!");
+            
+            // Apply that content to the new element
+            sp1.appendChild(sp1_content);
+            
+            // Build a reference to the existing node to be replaced
+            const sp2 = document.getElementById("approved");
+            const parentDiv = sp2.parentNode;
+            
+            // Replace existing node sp2 with the new span element sp1
+            parentDiv.replaceChild(sp1, sp2);
+
+
+        }
+
+
+    }
+
     else {
         window.alert("Already Connected")
     }
 }
 //end of main app function
 
+web3.eth.getGasPrice().then((result) => {
+    console.log("Gas price:");
+    console.log(web3.utils.fromWei(result, 'ether'))
+    })
 
+
+//get all wallets staked
+async function getTotalWallets() {
+    //import Web3 from 'web3';
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+    totalWallet = await spccContract.methods.amountOfStakers().call();
+    totalWallets.innerHTML = totalWallet;
+}
+
+getTotalWallets();
+
+async function getTotalMTSstaked() {
+    //import Web3 from 'web3';
+    const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+    const account = accounts[0];
+    totalMTSstake = await spccContract.methods.tokensStaked().call();
+    totalMTSstaked.innerHTML = totalMTSstake;
+}
+
+getTotalMTSstaked();
 
 
 //approve the Species Coin contract to transfer your MetaSpecies
@@ -146,12 +199,12 @@ async function stakeSelectedNfts() {
     selectedNft = document.querySelector('.t.selected')
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await spccContract.methods.stake(selectedNft.innerHTML).send({ from: account })
+    // await spccContract.methods.stake.estimateGas
+    await spccContract.methods.stake(selectedNft.innerHTML).send({ from: account }).estimateGas
 }
 
 async function unStakeSelectedNfts() {
     selectedNft = document.querySelector('.t.selected')
-    console.log(selectedNft.innerHTML);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     await spccContract.methods.unstake(selectedNft.innerHTML).send({ from: account })
@@ -166,8 +219,7 @@ async function calculateBalance() {
 
     if (unbalance.innerHTML.length == 0) {
 
-        for (let x of stakedNFT) {
-
+        for (let x of combList) {
             nftBal = await spccContract.methods.pendingRewards(account, x).call();
             int = parseInt(nftBal);
             calcBal += int;
@@ -175,10 +227,8 @@ async function calculateBalance() {
 
         calc.classList.remove("button--loading");
         //Displays the unclaimed amount of $SPCC
-        //calcbal = Math.round(calcBal / 1000000000000000000);
         calcBal = (Math.round(calcBal / 1000000000000000000));
         unbalance.innerHTML = calcBal;
-
 
     }
 
