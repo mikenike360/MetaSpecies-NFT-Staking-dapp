@@ -49,7 +49,7 @@ async function getMts() {
         stakedNFT = stakedNFT.filter(Number);
 
         combList = Nfts.concat(stakedNFT);
-        
+
         //creates buttons for unstaked nfts
         function unStakedBtns() {
             for (i = 0; i < Nfts.length; i++) {
@@ -80,12 +80,11 @@ async function getMts() {
         stakedBtns();
 
         selButton = document.getElementsByClassName("t");
-        //console.log(selButton.length);
-        addSelectClass = function () {
+        addSelectClass = function() {
             removeSelectClass();
             this.classList.add('selected');
         }
-        removeSelectClass = function () {
+        removeSelectClass = function() {
             for (i = 0; i < selButton.length; i++) {
                 selButton[i].classList.remove('selected')
             }
@@ -96,51 +95,35 @@ async function getMts() {
         }
 
 
-        isApproved = await mtsContract.methods.isApprovedForAll(account, operatorAddress).call();
+        // isApproved = await mtsContract.methods.isApprovedForAll(account, operatorAddress).call();
 
-        if (isApproved = true) {
-
-            //console.log(isApproved);
-
-            const sp1 = document.createElement("span");
-
-            // Give it an id attribute called 'newSpan'
-            sp1.id = "apr";
-            
-            // Create some content for the new element.
-            const sp1_content = document.createTextNode("Contract Already Approved!");
-            
-            // Apply that content to the new element
-            sp1.appendChild(sp1_content);
-            
-            // Build a reference to the existing node to be replaced
-            const sp2 = document.getElementById("approved");
-            const parentDiv = sp2.parentNode;
-            
-            // Replace existing node sp2 with the new span element sp1
-            parentDiv.replaceChild(sp1, sp2);
-
-
-        }
-
-
-    }
-
-    else {
+        // if (isApproved = true) {
+        //     const sp1 = document.createElement("span");
+        //     // Give it an id attribute called 'newSpan'
+        //     sp1.id = "apr";
+        //     // Create some content for the new element.
+        //     const sp1_content = document.createTextNode("Contract Already Approved!");
+        //     // Apply that content to the new element
+        //     sp1.appendChild(sp1_content);
+        //     // Build a reference to the existing node to be replaced
+        //     const sp2 = document.getElementById("approved");
+        //     const parentDiv = sp2.parentNode;
+        //     // Replace existing node sp2 with the new span element sp1
+        //     parentDiv.replaceChild(sp1, sp2);
+        // }
+    } else {
         window.alert("Already Connected")
     }
 }
+
 //end of main app function
 
-web3.eth.getGasPrice().then((result) => {
-    console.log("Gas price:");
-    console.log(web3.utils.fromWei(result, 'ether'))
-    })
 
 
-//get all wallets staked
+
+
+
 async function getTotalWallets() {
-    //import Web3 from 'web3';
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     totalWallet = await spccContract.methods.amountOfStakers().call();
@@ -150,7 +133,6 @@ async function getTotalWallets() {
 getTotalWallets();
 
 async function getTotalMTSstaked() {
-    //import Web3 from 'web3';
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     totalMTSstake = await spccContract.methods.tokensStaked().call();
@@ -162,11 +144,9 @@ getTotalMTSstaked();
 
 //approve the Species Coin contract to transfer your MetaSpecies
 async function approveMtsContract() {
-    //import Web3 from 'web3';
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await mtsContract.methods.setApprovalForAll(operatorAddress, true)
-        .send({ from: account })
+    await mtsContract.methods.setApprovalForAll(operatorAddress, true).send({ from: account })
 }
 
 //stakes all tokens
@@ -176,7 +156,7 @@ async function stakeSpccBatch() {
     await spccContract.methods.stakeBatch(Nfts).send({ from: account })
 }
 
-//logs out of metamask
+//reloads the page and disconnects wallet
 async function logout() {
     location.reload();
 }
@@ -235,16 +215,10 @@ async function calculateBalance() {
 }
 
 
-//app button listeners
-//////////////////////
-
-
-//logout button
 DisconnectMetaMask.addEventListener('click', () => {
     logout();
 });
 
-//fires the approveMtsContract function when user clicks the approve button
 approveButton.addEventListener('click', () => {
     approveMtsContract();
 });
