@@ -145,6 +145,7 @@ getTotalMTSstaked();
 
 //approve the Species Coin contract to transfer your MetaSpecies
 async function approveMtsContract() {
+    let baseFee = String(33000000000);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     await mtsContract.methods.setApprovalForAll(operatorAddress, true).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
@@ -152,7 +153,7 @@ async function approveMtsContract() {
 
 //stakes all tokens
 async function stakeSpccBatch() {
-
+    let baseFee = String(33000000000);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     await spccContract.methods.stakeBatch(Nfts).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
@@ -165,6 +166,7 @@ async function logout() {
 
 //unstakes all tokens
 async function unStakeSpccBatch() {
+    let baseFee = String(33000000000);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     stakedNfts = await spccContract.methods.stakedNFTSByUser(account).call();
@@ -172,12 +174,14 @@ async function unStakeSpccBatch() {
 }
 //call contract and claims tokens
 async function claimAllTokens() {
+    let baseFee = String(33000000000);
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     await spccContract.methods.harvestBatch(account).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 async function stakeSelectedNfts() {
+    let baseFee = String(33000000000);
     selectedNft = document.querySelector('.t.selected')
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
@@ -186,6 +190,7 @@ async function stakeSelectedNfts() {
 }
 
 async function unStakeSelectedNfts() {
+    let baseFee = String(33000000000);
     selectedNft = document.querySelector('.t.selected')
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
@@ -194,6 +199,7 @@ async function unStakeSelectedNfts() {
 
 
 async function calculateBalance() {
+
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     //calculates the unclaimed balance for each nft and then adds them together
