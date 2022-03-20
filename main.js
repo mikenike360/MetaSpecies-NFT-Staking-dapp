@@ -27,6 +27,7 @@ const unStakeSelected = document.querySelector('.unStakeSelected')
 const totalWallets = document.querySelector('.stakedWallets')
 const totalMTSstaked = document.querySelector('.totalMTSstaked')
 
+let baseFee = String(33000000000);
 //app functions//
 
 //Main app function that does most of the logic
@@ -146,14 +147,15 @@ getTotalMTSstaked();
 async function approveMtsContract() {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await mtsContract.methods.setApprovalForAll(operatorAddress, true).send({ from: account })
+    await mtsContract.methods.setApprovalForAll(operatorAddress, true).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 //stakes all tokens
 async function stakeSpccBatch() {
+
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await spccContract.methods.stakeBatch(Nfts).send({ from: account })
+    await spccContract.methods.stakeBatch(Nfts).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 //reloads the page and disconnects wallet
@@ -166,13 +168,13 @@ async function unStakeSpccBatch() {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     stakedNfts = await spccContract.methods.stakedNFTSByUser(account).call();
-    await spccContract.methods.unstakeBatch(stakedNfts).send({ from: account })
+    await spccContract.methods.unstakeBatch(stakedNfts).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 //call contract and claims tokens
 async function claimAllTokens() {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await spccContract.methods.harvestBatch(account).send({ from: account })
+    await spccContract.methods.harvestBatch(account).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 async function stakeSelectedNfts() {
@@ -180,14 +182,14 @@ async function stakeSelectedNfts() {
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
     // await spccContract.methods.stake.estimateGas
-    await spccContract.methods.stake(selectedNft.innerHTML).send({ from: account }).estimateGas
+    await spccContract.methods.stake(selectedNft.innerHTML).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 async function unStakeSelectedNfts() {
     selectedNft = document.querySelector('.t.selected')
     const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
     const account = accounts[0];
-    await spccContract.methods.unstake(selectedNft.innerHTML).send({ from: account })
+    await spccContract.methods.unstake(selectedNft.innerHTML).send({ from: account, maxFeePerGas: baseFee, maxPriorityFeePerGas: baseFee })
 }
 
 
